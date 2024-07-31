@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copiar Chave Pix</title>
+    <title>Copiar Texto</title>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const pixKey = '00020126360014BR.GOV.BCB.PIX0114+55149979759595204000053039865802BR5914Antonio Carlos6007MARILIA62070503***6304E30D';
-            navigator.clipboard.writeText(pixKey).then(function() {
-                alert('Chave Pix copiada para a área de transferência!');
-            }, function(err) {
-                alert('Erro ao copiar chave Pix: ' + err);
+        function copyToClipboard() {
+            const text = document.getElementById("textToCopy").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Texto copiado para a área de transferência!');
+            }, (err) => {
+                alert('Falha ao copiar o texto: ', err);
             });
-        });
+        }
     </script>
 </head>
 <body>
-    <p>Chave Pix copiada para a área de transferência!</p>
+    <p id="textToCopy" style="display:none;">00020126360014BR.GOV.BCB.PIX0114+55149979759595204000053039865802BR5914Antonio Carlos6007MARILIA62070503***6304E30D.</p>
+    <a href="#" onclick="copyToClipboard()">Clique aqui para copiar o texto</a>
 </body>
 </html>
